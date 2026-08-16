@@ -574,19 +574,21 @@ select {
 .row {
     display: grid;
 
-    grid-template-columns: 56px 1fr 72px;
+    grid-template-columns: 56px minmax(0, 1fr) auto;
 
     gap: 16px;
 
     align-items: center;
 
-    padding: 11px;
+    padding: 12px;
 
     background: var(--surface);
 
     border: 1px solid var(--line);
 
     border-radius: var(--radius-md);
+
+    box-shadow: 0 2px 8px rgba(23, 24, 20, 0.035);
 
     transition:
         border-color 0.15s ease,
@@ -740,40 +742,55 @@ select {
 
 .row-actions {
     display: flex;
-
     align-items: center;
-
     justify-content: flex-end;
-
-    gap: 6px;
+    gap: 7px;
 }
 
 .row-download,
 .row-remove {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    width: 32px;
-    height: 32px;
+    height: 34px;
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
 
     background: var(--paper);
 
-    border: 1px solid var(--line);
-
-    border-radius: var(--radius-sm);
-
-    color: var(--ink);
-
-    text-decoration: none;
-
     cursor: pointer;
+    text-decoration: none;
 
     transition:
         background 0.15s ease,
         border-color 0.15s ease,
-        color 0.15s ease;
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+/* Download button */
+.row-download {
+    width: auto;
+    min-width: 72px;
+
+    padding: 0 10px;
+
+    color: var(--success);
+
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Remove button */
+.row-remove {
+    width: 34px;
+
+    color: var(--error);
+
+    font-size: 16px;
 }
 
 .row-download:hover,
@@ -781,16 +798,9 @@ select {
     background: var(--surface);
 
     border-color: var(--line-strong);
-}
 
-.row-download {
-    color: var(--success);
+    transform: translateY(-1px);
 }
-
-.row-remove {
-    color: var(--error);
-}
-
 
 /* ========================================
    FOOTER
