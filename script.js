@@ -183,7 +183,7 @@ qualitySlider.addEventListener("input", function () {
 
 
 // -----------------------------
-// Compress / Convert
+// Compress / Convert         
 // -----------------------------
 
 processBtn.addEventListener("click", function () {
