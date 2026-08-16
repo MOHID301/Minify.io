@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 13</title>
+    <style>
+        body {
+            background-color: #0f0f0f;
+            font-family: sans-serif;
+        }
+
+        .card {
+            display: flex; 
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            max-width: 680px;
+            border: 1px solid beige;
+
+        }
+
+        .card-img {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .card-img img {
+            width: 168px;
+            height: 94px;
+            display: block;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;  
+            gap: 4px;
+        }
+
+        .title h4 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #aaa;
+            margin: 0;
+            display: flex;
+            justify-content:space-between;
+            align-items:flex-start;
+        }
+        .views{
+            margin: 2px;
+        }
+        .timeAgo{
+            margin: 2px;
+        }
+        .channelName {
+            font-size: 13px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <div class="card-img">
+            <img src="bakal_photo.jpg" alt="thumbnail">
+            <span class="duration">11:24</span>
+        </div>
+        <div class="card-info">
+            <div class="title">
+                <h4>Bakal ki kahani</h4>
+            </div>
+            <div class="meta">
+                <p class = "views">
+                    123K views 
+                    <span>&nbsp;•&nbsp;   
+                    </span> 
+                </p>
+                <p class = "timeAgo">
+                    2 years ago
+                </p>
+            </div>
+            <div class="channelName">
+                Horror Stories
+            </div>
+        </div>
+
+    </div>
+    <button onclick="cardCreated()">
+        Click me
+    </button>
+    <script>
+        let durationEl = document.querySelector(".duration")
+let titleEl = document.querySelector(".title h4")
+let viewsEl = document.getElementsByClassName("views")[0]
+let timeAgoEl = document.querySelector(".timeAgo")
+let channelNameEl = document.querySelector(".channelName")
+
+function cardCreated() {
+    durationEl.innerText = "11:22"
+    titleEl.innerText = "Bakal ki shadi"
+    viewsEl.innerText = "1M views •"
+    timeAgoEl.innerText = "1 year ago"
+    channelNameEl.innerText = "Comedy Stories"
+}
+        
+    </script>
+
+</body>
+</html>

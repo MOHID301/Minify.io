@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    <script>
+
+        // let promise = new Promise((resolve, reject)=>{
+        //     let a = 1+2;
+        //     if(a==2){
+        //         console.log("Promise resolved");
+        //         resolve("Success");
+        //     }else{
+        //         console.log("Promise rejected");
+        //         reject("Failed");
+        //     }
+        // })
+
+       
+        // function api(){
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("data1");
+        //             resolve("success");
+        //         }, 5000)
+        //     })
+        // }
+
+            function firstFunction(data){
+                return new Promise((resolve, reject)=>{
+                    setTimeout(()=>{
+                        console.log("data: " ,data);
+                        resolve("success");
+                    }, 5000)
+                })
+            }
+
+         (async function fetchData(){
+            console.log("fetching data1...");
+            await firstFunction(1);
+            console.log("fetching data2...");
+            await firstFunction(2);
+            console.log("fetching data3...");
+            await firstFunction(3);
+            console.log("fetching data4...");
+            await firstFunction(4);
+            console.log("fetching data5...");
+            await firstFunction(5);
+        })();
+         
+   
+
+
+        // function asyncFunction1(){
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("data1");
+        //             resolve("success");
+        //         }, 5000)
+        //     })
+        // }
+
+        // function asyncFunction2(){
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("data2");
+        //             resolve("success");
+        //         }, 5000)
+        //     })
+        // }
+        //     console.log("fetching data1...");
+        // asyncFunction1().then(()=>{
+        //     console.log("fetching data2...");
+        // asyncFunction2().then(()=>{
+        //     })
+        // }).catch((message)=>{
+        //     console.log("This is in catch: " + message);
+        // })
+         
+
+
+        
+
+        // promise.then((message)=>{
+        //     console.log("This is in then: " + message);
+        // }).catch((message)=>{
+        //     console.log("This is in catch: " + message);
+        // })
+
+
+    
+
+    //     firstFunction(1, ()=> {
+    //         console.log("2nd is loading.....");
+    //       firstFunction(2, ()=> {
+    //         console.log("3rd is loading.....");
+    //         firstFunction(3, ()=> {
+    //             console.log("4th is loading.....");
+    //             firstFunction(4, ()=> {
+    //                 console.log("5th is loading.....");
+    //                 firstFunction(5, ()=> {
+    //                     console.log("Done");
+    //                 })
+    //             })
+    //         })
+    //       })
+    //     })
+    </script>    
+</body>
+</html>

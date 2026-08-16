@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F1F2ED">
+<meta name="description" content="Compress and convert images to JPEG, PNG or WebP entirely in your browser. Nothing is uploaded.">
+<title>Image Scale — compress &amp; convert images</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+          <path d="M11 8v16M11 8h5M11 24h5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 8v16M21 8h-5M21 24h-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-name"><h2>Minify.io</h2></span>
+    </div>
+    <h1>Shrink and convert images without leaving the tab.</h1>
+    <p class="lede">Drop in JPEGs, PNGs or WebPs, dial in a format and quality, and pull down the compressed files. All the encoding happens in your browser, using the Canvas API.</p>
+  </header>
+
+  <main>
+    <section id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload images">
+      <input type="file" id="fileInput" accept="image/*" multiple hidden>
+      <svg class="drop-icon" viewBox="0 0 48 48" width="40" height="40" fill="none" aria-hidden="true">
+        <path d="M24 6v22m0 0l-8-8m8 8l8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 34v4a4 4 0 0 0 4 4h20a4 4 0 0 0 4-4v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p class="drop-text">Drag images here, or <span class="link-text">browse</span></p>
+      <p class="drop-hint">JPEG · PNG · WebP · GIF · BMP — any size, any number</p>
+    </section>
+
+    <section id="controls" class="controls" hidden>
+      <div class="control-row">
+        <div class="field">
+          <label for="formatSelect">Output format</label>
+          <select id="formatSelect">
+            <option value="original">Keep original</option>
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qualitySlider">Quality <span id="qualityValue" class="mono">80</span></label>
+          <input type="range" id="qualitySlider" min="1" max="100" value="80">
+          <p class="field-hint">Only affects JPEG and WebP output</p>
+        </div>
+      </div>
+      <div class="control-row">
+        <div class="field">
+          <label for="maxWidth">Max width (px)</label>
+          <input type="number" id="maxWidth" placeholder="e.g. 1920" min="1">
+        </div>
+        <div class="field">
+          <label for="maxHeight">Max height (px)</label>
+          <input type="number" id="maxHeight" placeholder="e.g. 1080" min="1">
+        </div>
+      </div>
+      <p class="field-hint dimension-hint">Leave width and height blank to keep the original dimensions.</p>
+      <div class="control-actions">
+        <button id="processBtn" class="btn btn-primary">Compress &amp; Convert</button>
+        <button id="downloadAllBtn" class="btn btn-secondary" hidden>Download all (.zip)</button>
+        <button id="clearBtn" class="btn btn-ghost">Clear</button>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="results" hidden>
+      <div class="results-head">
+        <span></span>
+        <span>File</span>
+        <span></span>
+      </div>
+      <div id="results" class="results-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Minify.io — Developed by Mohid & CO.
+        <span class="footer-separator" aria-hidden="true"> | </span>
+        <span>© 2026 Minify.io — All Rights Reserved</span>
+</p>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
